@@ -1,4 +1,5 @@
 require 'bundler/capistrano'
+load 'deploy/assets'
 
 # Load RVM's capistrano plugin.
 require "rvm/capistrano"
