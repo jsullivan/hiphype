@@ -1,3 +1,9 @@
+# Load RVM's capistrano plugin.
+require "rvm/capistrano"
+set :rvm_path, "$HOME/.rvm"
+set :rvm_ruby_string, "1.9.3"
+set :rvm_type, :user  # Don't use system-wide RVM
+
 set :application, "hiphype"
 set :repository,  "http://github.com/jsullivan/hiphype"
 
@@ -33,6 +39,6 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   task :compile_assets do
-    run "cd #{current_release};bundle;bundle exec rake assets:precompile"
+    run "bundle exec rake assets:precompile"
   end
 end
