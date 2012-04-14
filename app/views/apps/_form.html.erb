@@ -1,6 +1,8 @@
+<div class="well">
 <%= form_for(@app) do |f| %>
   <% if @app.errors.any? %>
-    <div id="error_explanation">
+<div class="alert alert-error">
+      
       <h2><%= pluralize(@app.errors.count, "error") %> prohibited this app from being saved:</h2>
 
       <ul>
@@ -12,6 +14,28 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.label "Upload a screenshot of your app or your logo" %>
+    <%= f.file_field :avatar %>
+
+    <%= f.label "Your app's name"%>
+    <%= f.text_field :name %>
+
+    <%= f.label "What does your app do?"%>
+    <%= f.text_area :description %>
+
+    <%= f.label "Your primary email address"%>
+    <%= f.text_field :email %>
+
+    <%= f.label "Your app's URL"%>
+    <%= f.text_field :url %>
+
+    <%= f.label "Your app's twitter name"%>
+    <%= f.text_field :twitter %>
+    <br />
+    <div class="paddit">
+    </div>
+    <%= f.submit "Pimp my app", :class => "btn-large btn-success" %>
+    <%= link_to 'or Cancel', apps_path %>
   </div>
 <% end %>
+</div>

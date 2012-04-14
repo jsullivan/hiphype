@@ -1,21 +1,30 @@
-<h1>Listing apps</h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="paddit"></div>
+<h1>New apps</h1>
 
 <% @apps.each do |app| %>
-  <tr>
-    <td><%= link_to 'Show', app %></td>
-    <td><%= link_to 'Edit', edit_app_path(app) %></td>
-    <td><%= link_to 'Destroy', app, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  <div class="app-holder">
+    <div class="thumby">
+      <% if app.avatar? %>
+        <%= link_to (image_tag app.avatar), app.url %>
+      <% else %>
+        <%= image_tag "thumby_generic.png" %>
+      <% end %>
+    </div>
+    <div class="app-name large">
+    <span class="label label-success">New</span>
+    <%= link_to app.name.capitalize, app.url %>
+    </div>
+    <%= app.url %>
+
+    <div class="app-description">
+      <%= app.description %>
+    </div>
+    <i>
+      pimped <%= time_ago_in_words(app.created_at) %> ago
+    </i>
+    <br />
+  </div>
 <% end %>
-</table>
 
 <br />
 
-<%= link_to 'New App', new_app_path %>
