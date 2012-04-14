@@ -1,8 +1,10 @@
+require 'bundler/capistrano'
+
 # Load RVM's capistrano plugin.
-require "rvm/capistrano"
-set :rvm_path, "$HOME/.rvm"
-set :rvm_ruby_string, "1.9.3"
-set :rvm_type, :user  # Don't use system-wide RVM
+#require "rvm/capistrano"
+#set :rvm_path, "$HOME/.rvm"
+#set :rvm_ruby_string, "1.9.3"
+#set :rvm_type, :user  # Don't use system-wide RVM
 
 set :application, "hiphype"
 set :repository,  "http://github.com/jsullivan/hiphype"
@@ -22,7 +24,6 @@ role :db,  "hiphype.me", :primary => true
 set :deploy_to, "#{home_dir}"
 
 set :bundle_roles, [:app]
-require 'bundler/capistrano'
 
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy", "deploy:cleanup"
