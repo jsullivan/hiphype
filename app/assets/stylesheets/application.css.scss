@@ -13,3 +13,32 @@
 */
 @import "bootstrap";
 
+body {
+  color: #fff;
+  background: #46c7f4;
+  margin-top: 40px;
+}
+img {
+     max-width: 100%;
+}
+
+.btn-large{
+  font-size: 20px;
+  font-weight: normal;
+  padding: 14px 24px;
+  margin-right: 10px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+.splash {
+  margin: 0 auto;
+  margin-top: 128px;
+  text-align: center;
+}
+.splash img {
+  margin-bottom: 48px;
+}
+
+@import "bootstrap-responsive";
