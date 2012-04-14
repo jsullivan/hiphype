@@ -9,19 +9,17 @@ set :use_sudo, false
 
 set :home_dir, "/var/www/#{application}"
 
-
 role :web, "hiphype.me"      # Your HTTP server, Apache/etc
 role :app, "hiphype.me"
 role :db,  "hiphype.me", :primary => true 
 
-
 set :deploy_to, "#{home_dir}"
+
+set :bundle_roles, [:app]
+require 'bundler/capistrano'
 
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy", "deploy:compile_assets"
-
-after "deploy:restart", "deploy:cleanup"
-
 after "deploy", "deploy:cleanup"
 
 # if you're still using the script/reaper helper you will need
