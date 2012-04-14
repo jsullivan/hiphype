@@ -33,6 +33,6 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   task :compile_assets do
-    run "#{try_sudo} bundle exec rake assets:precompile"
+    run "#{try_sudo} bundle;bundle exec rake assets:precompile"
   end
 end
