@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
 </head>
 <body>
     
@@ -20,6 +22,7 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active"><a href="/">Home</a></li>
+              <li><a href="/browse">Browse apps</a></li>
               <li><a href="/contact">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -32,10 +35,11 @@
     <%= yield %>
 
     </div>
-    <div class="examples" style="text-align: center;">
-      <iframe src="http://player.vimeo.com/video/40373714" width="960" height="540" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-    </div>
     <footer>
+      <%= image_tag 'serge.png' %>
+      <br />
+      Powered with SergeSDK
+      <br />
       HipHype is a 2012 AT&T mobile hackathon contestant.
     </footer>
     <!-- Le javascript
