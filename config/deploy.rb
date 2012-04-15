@@ -43,7 +43,7 @@ namespace :deploy do
 end
 
 namespace :custom do
-  task :symlinks, :roles => :app do
+  task :symlinks do
     run "ln -nfs #{shared_path}/data #{current_path}/db/data"
   end
 end
