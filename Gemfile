@@ -10,6 +10,7 @@ gem 'capistrano'
 gem 'rvm-capistrano'
 gem 'passenger'
 gem "paperclip", "~> 3.0"
+gem 'twitter'
 
 # Gems used only for assets and not required
 # in production environments by default.
