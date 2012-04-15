@@ -44,6 +44,6 @@ end
 
 namespace :custom do
   task :data_symlink do
-    run "ln -nfs #{shared_path}/data #{current_path}/db/data"
+    run "ln -nfs #{shared_path}/data #{release_path}/db/data"
   end
 end
