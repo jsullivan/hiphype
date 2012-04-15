@@ -28,7 +28,7 @@ set :bundle_roles, [:app]
 
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy", "deploy:cleanup"
-before "deploy:migrations", "deploy:custom_symlinks"
+after "deploy:update", "deploy:custom_symlinks"
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
@@ -41,8 +41,6 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   task :custom_symlinks do
-    run <<-CMD
-      ln -nfs #{shared_path}/system/db/data #{release_path}/db/data
-    CMD
+    run "ln -nfs #{shared_path}/data #{current_path}/db/data"
   end
 end
