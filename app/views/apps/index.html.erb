@@ -7,14 +7,16 @@
       <% if app.avatar? %>
         <%= link_to (image_tag app.avatar), app.url %>
       <% else %>
-        <%= image_tag "thumby_generic.png" %>
+        <%= link_to (image_tag "thumby_generic.png"), app.url %>
       <% end %>
     </div>
     <div class="app-name large">
     <span class="label label-success">New</span>
-    <%= link_to app.name.capitalize, app.url %>
+    <%= link_to app.name, app.url %>
+    <div class="small-url" %>
+      (<%= app.url %>)
     </div>
-    <%= app.url %>
+    </div>
 
     <div class="app-description">
       <%= app.description %>
