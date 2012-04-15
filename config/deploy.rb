@@ -42,7 +42,6 @@ namespace :deploy do
   end
   task :custom_symlinks do
     run <<-CMD
-      mkdir #{shared_path}/system/db/data;
       ln -nfs #{shared_path}/system/db/data #{release_path}/db/data
     CMD
   end
