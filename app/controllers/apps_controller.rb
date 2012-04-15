@@ -44,7 +44,7 @@ class AppsController < ApplicationController
 
     respond_to do |format|
       if @app.save
-        Twitter.update("Now Hyping #{@app.name}. Launched fresh at #{@app.url}. #{'#' + @app.event if @app.event}")
+        Twitter.update("Now Hyping #{@app.name}. Launched fresh at #{@app.url}. #{'#' + @app.event if @app.event}. #{@app.twitter if @app.twitter}" )
         format.html { redirect_to apps_path, notice: 'App was successfully created.' }
         format.json { render json: @app, status: :created, location: @app }
       else
